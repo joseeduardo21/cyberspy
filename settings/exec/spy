@@ -18,7 +18,7 @@ bin="/data/data/com.termux/files/usr/bin"
 opt="/data/data/com.termux/files/usr/opt"
 share="/data/data/com.termux/files/usr/share"
 argument=$1
-option=$1
+option=$2
 # ==============================================
 #                  Light colors
 # ==============================================
