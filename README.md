@@ -1,2 +1,2 @@
 # cyberspy
-Hacking tool suite for android in Termux.
+Hacking Tool Suite for Android in Termux.
