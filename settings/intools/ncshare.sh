@@ -73,7 +73,7 @@ function installing() {
 [${green}*${red}] ${green}Installing NCShare..."${white}
     yes|pkg update && pkg upgrade
     yes|pkg install nmap
-    git clone https://github.com/whitehacks00/ncshare ${opt}
+    git clone https://github.com/whitehacks00/ncshare ${opt}/ncshare
     cd ${opt}/ncshare
     chmod 777 *.sh
     cp ${execute}/ncshare ${bin}
