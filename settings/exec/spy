@@ -1,0 +1,98 @@
+#!/bin/bash
+#
+# Execute: spy
+#
+# ==============================================
+#                  Variables
+# ==============================================
+spy="/data/data/com.termux/files/home/cyberspy"
+settings="/data/data/com.termux/files/home/cyberspy/settings"
+style="/data/data/com.termux/files/home/cyberspy/settings/style"
+execute="/data/data/com.termux/files/home/cyberspy/settings/exec"
+intools="/data/data/com.termux/files/home/cyberspy/settings/intools"
+rmtools="/data/data/com.termux/files/home/cyberspy/settings/rmtools"
+home="/data/data/com.termux/files/home"
+usr="/data/data/com.termux/files/usr"
+etc="/data/data/com.termux/files/usr/etc"
+bin="/data/data/com.termux/files/usr/bin"
+opt="/data/data/com.termux/files/usr/opt"
+share="/data/data/com.termux/files/usr/share"
+argument=$1
+option=$1
+# ==============================================
+#                  Light colors
+# ==============================================
+black="\e[1;30m"
+blue="\e[1;34m"
+green="\e[1;32m"
+cyan="\e[1;36m"
+red="\e[1;31m"
+purple="\e[1;35m"
+yellow="\e[1;33m"
+white="\e[1;37m"
+# ==============================================
+#                  Dark colors
+# ==============================================
+blackDark="\e[0;30m"
+blueDark="\e[0;34m"
+greenDark="\e[0;32m"
+cyanDark="\e[0;36m"
+redDark="\e[0;31m"
+purpleDark="\e[0;35m"
+yellowDark="\e[0;33m"
+whiteDark="\e[0;37m"
+# ==============================================
+#               Background colors
+# ==============================================
+blackBack=$(setterm -background black)
+blueBack=$(setterm -background blue)
+greenBack=$(setterm -background green)
+cyanBack=$(setterm -background cyan)
+redBack=$(setterm -background red)
+yellowBack=$(setterm -background yellow)
+whiteBack=$(setterm -background white)
+# ==============================================
+#            Specifying arguments
+# ==============================================
+if [[ "${argument}" == "style" ]]; then
+    if [[ "${option}" == "small" ]]; then
+	cp ${style}/spy.small.txt ${style}/spy.txt
+	cat ${style}/spy.txt
+    elif [[ "${option}" == "medium" ]]; then
+	cp ${style}/spy.medium.txt ${style}/spy.txt
+	cat ${style}/spy.txt
+    elif [[ "${option}" == "large" ]]; then
+	cp ${style}/spy.large.txt ${style}/spy.txt
+	cat ${style}/spy.txt
+    else
+	echo -e "${red}[${yello}!${red}] Invalid Option"${white}
+    fi
+elif [[ "${argument}" == "install" ]]; then
+    if [[ "${option}" == "ncshare" ]]; then
+	source ${intools}/ncshare.sh
+    elif [[ "${option}" == "sherlock" ]]; then
+	source ${intools}/sherlock.sh
+    else
+	echo -e "${red}[${yello}!${red}] Invalid Option"${white}
+    fi
+elif [[ "${argument}" == "remove" ]]; then
+    if [[ "${option}" == "ncshare" ]]; then
+	source ${rmtools}/ncshare.sh
+    elif [[ "${option}" == "metasploit" ]]; then
+	source ${rmtools}/metasploit.sh
+    else
+	echo -e "${red}[${yello}!${red}] Invalid Option"${white}
+    fi
+elif [[ "${argument}" == "update" ]]; then
+    rm -rf ${spy}
+    git clone https://github.com/Darkmux/cyberspy ${spy}
+    cd ${spy}
+    chmod 777 *.sh
+    bash update.sh
+    echo -e ${red}"[${green}√${red}] ${green}CyberSpy Updated"${white}
+elif [[ "${argument}" == "uninstall" ]]; then
+    source ${spy}/uninstall.sh
+    echo -e ${red}"[${green}√${red}] ${green}CyberSpy Uninstalled"${white}
+else
+    echo -e "${red}[${yello}!${red}] Invalid Argument"${white}
+fi
