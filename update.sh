@@ -72,14 +72,14 @@ function updating() {
     echo -e ${red}"
 [${green}*${red}] ${green}Installing updates..."${white}
     yes|pkg update && pkg upgrade
-    cd ${exec}
+    cd ${execute}
     chmod 777 *
     cd ${intools}
     chmod 777 *
     cd ${rmtools}
     chmod 777 *
     cd ${spy}
-    cp ${exec}/spy ${bin}
+    cp ${execute}/spy ${bin}
     chmod 777 ${bin}/spy
 }
 # ==============================================

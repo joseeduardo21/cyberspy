@@ -77,7 +77,7 @@ function installing() {
     git clone https://github.com/sherlock-project/sherlock ${opt}
     cd ${opt}/sherlock
     python3 -m pip install -r requirements.txt
-    cp ${exec}/sherlock ${bin}
+    cp ${execute}/sherlock ${bin}
     chmod 777 ${bin}/sherlock
     echo -e ${red}"
 [${green}√${red}] ${green}Installation Finished, Please Execute:${white}

@@ -76,7 +76,7 @@ function installing() {
     git clone https://github.com/whitehacks00/ncshare ${opt}
     cd ${opt}/ncshare
     chmod 777 *.sh
-    cp ${exec}/ncshare ${bin}
+    cp ${execute}/ncshare ${bin}
     chmod 777 ${bin}/ncshare
     echo -e ${red}"
 [${green}√${red}] ${green}Installation Finished, Please Execute:${white}

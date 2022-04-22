@@ -92,14 +92,14 @@ function style() {
     if [ ! -d ${opt} ]; then
 	mkdir -p ${opt}
     fi
-    cd ${exec}
+    cd ${execute}
     chmod 777 *
     cd ${intools}
     chmod 777 *
     cd ${rmtools}
     chmod 777 *
     cd ${spy}
-    cp ${exec}/spy ${bin}
+    cp ${execute}/spy ${bin}
     chmod 777 ${bin}/spy
     echo -e ${red}"
 [${green}√${red}] ${green}Installation Finished, Please Execute:${white}
