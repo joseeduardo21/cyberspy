@@ -86,8 +86,8 @@ function style() {
     chmod 777 *.sh
     rm -rf ~/.termux > /dev/null 2>&1
     cp -r ${style}/.termux ~
-    cp ${etc}/bash.bashrc ${etc}/bash.bashrc.backup > /dev/null 2>&1
-    cp ${etc}/motd ${etc}/motd.backup > /dev/null 2>&1
+    mv ${etc}/bash.bashrc ${etc}/bash.bashrc.backup > /dev/null 2>&1
+    mv ${etc}/motd ${etc}/motd.backup > /dev/null 2>&1
     cp ${style}/bash.bashrc ${etc}
     if [ ! -d ${opt} ]; then
 	mkdir -p ${opt}

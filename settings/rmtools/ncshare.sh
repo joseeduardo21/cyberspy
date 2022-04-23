@@ -69,13 +69,18 @@ whiteBack=$(setterm -background white)
 #             Removing Tool
 # ==============================================
 function removing() {
-    echo -e ${red}"
+    if [ -x ${bin}/ncshare ]; then
+	echo -e ${red}"
 [${green}*${red}] ${green}Rwmoving NCShare..."${white}
-    yes|pkg uninstall nmap
-    rm -rf ${opt}/ncshare
-    rm ${bin}/ncshare
-    echo -e ${red}"
+        yes|pkg uninstall nmap
+        rm -rf ${opt}/ncshare
+        rm ${bin}/ncshare
+        echo -e ${red}"
 [${green}√${red}] ${green}Removal Completed"${white}
+    else
+	echo -e ${red}"
+[${yellow}!${red}] Not Installed"${white}
+    fi
 }
 # ==============================================
 #              Declaring functions

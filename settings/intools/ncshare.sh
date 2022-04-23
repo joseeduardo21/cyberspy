@@ -69,21 +69,26 @@ whiteBack=$(setterm -background white)
 #             Installing Tool
 # ==============================================
 function installing() {
-    echo -e ${red}"
+    if [ ! -x ${bin}/ncshare ]; then
+	echo -e ${red}"
 [${green}*${red}] ${green}Installing NCShare..."${white}
-    yes|pkg update && pkg upgrade
-    yes|pkg install nmap
-    git clone https://github.com/whitehacks00/ncshare ${opt}/ncshare
-    cd ${opt}/ncshare
-    chmod 777 *.sh
-    cp ${execute}/ncshare ${bin}
-    chmod 777 ${bin}/ncshare
-    echo -e ${red}"
+	yes|pkg update && pkg upgrade
+        yes|pkg install nmap
+        git clone https://github.com/whitehacks00/ncshare ${opt}/ncshare
+        cd ${opt}/ncshare
+        chmod 777 *.sh
+        cp ${execute}/ncshare ${bin}
+        chmod 777 ${bin}/ncshare
+        echo -e ${red}"
 [${green}√${red}] ${green}Installation Finished, Please Execute:${white}
 
 ncshare
 
 "
+    else
+	echo -e ${red}"
+[${green}*${red}] ${green}Already Installed"${white}
+    fi
 }
 # ==============================================
 #              Declaring functions

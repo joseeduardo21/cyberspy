@@ -69,22 +69,27 @@ whiteBack=$(setterm -background white)
 #             Installing Tool
 # ==============================================
 function installing() {
-    echo -e ${red}"
+    if [ ! -x ${bin}/sherlock ]; then
+	echo -e ${red}"
 [${green}*${red}] ${green}Installing sherlock..."${white}
-    yes|pkg update && pkg upgrade
-    yes|pkg install python
-    pip install --upgrade pip
-    git clone https://github.com/sherlock-project/sherlock ${opt}/sherlock
-    cd ${opt}/sherlock
-    python3 -m pip install -r requirements.txt
-    cp ${execute}/sherlock ${bin}
-    chmod 777 ${bin}/sherlock
-    echo -e ${red}"
+        yes|pkg update && pkg upgrade
+        yes|pkg install python
+        pip install --upgrade pip
+        git clone https://github.com/sherlock-project/sherlock ${opt}/sherlock
+        cd ${opt}/sherlock
+        python3 -m pip install -r requirements.txt
+        cp ${execute}/sherlock ${bin}
+        chmod 777 ${bin}/sherlock
+        echo -e ${red}"
 [${green}√${red}] ${green}Installation Finished, Please Execute:${white}
 
 sherlock <USERNAME>
 
 "
+    else
+	echo -e ${red}"
+[${green}*${red}] ${green}Already Installed"${white}
+    fi
 }
 # ==============================================
 #              Declaring functions

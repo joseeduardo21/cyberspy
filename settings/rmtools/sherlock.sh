@@ -69,13 +69,17 @@ whiteBack=$(setterm -background white)
 #                 Removing Tool
 # ==============================================
 function removing() {
-    echo -e ${red}"
+    if [ -x ${bin}/sherlock ]; then
+	echo -e ${red}"
 [${green}*${red}] ${green}Rwmoving sherlock..."${white}
-    yes|pkg uninstall python
-    rm -rf ${opt}/sherlock
-    rm ${bin}/sherlock
-    echo -e ${red}"
+        yes|pkg uninstall python
+        rm -rf ${opt}/sherlock
+        rm ${bin}/sherlock
+        echo -e ${red}"
 [${green}√${red}] ${green}Removal Completed"${white}
+    else
+	echo -e ${red}"                 [${yellow}!${red}] Not Installed"${white}
+    fi
 }
 # ==============================================
 #              Declaring functions
