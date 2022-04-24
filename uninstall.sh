@@ -80,7 +80,11 @@ function updating() {
 	rm -rf ~/.termux
 	mkdir -p ~/.termux
 	cp ${style}/.termux/termux.properties ~/.termux
+	spy remove ncshare
+	spy remove sherlock
+	spy remove seeker
 	rm -rf ${spy}
+	rm ${bin}/spy
     elif [[ "${confirm}" == "n" || "${confirm}" == "N" || "${confirm}" == "not" || "${confirm}" == "NOT" ]]; then
 	echo -e "Abort."
 	exit
