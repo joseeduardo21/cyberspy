@@ -66,26 +66,40 @@ redBack=$(setterm -background red)
 yellowBack=$(setterm -background yellow)
 whiteBack=$(setterm -background white)
 # ==============================================
-#                 Removing Tool
+#             Installing Tool
 # ==============================================
-function removing() {
-    if [ -x ${bin}/sherlock ]; then
+function installing() {
+    if [ ! -x ${bin}/seeker ]; then
 	echo -e ${red}"
-[${green}*${red}] ${green}Removing sherlock..."${white}
-        yes|pkg uninstall python
-        rm -rf ${opt}/sherlock
-        rm ${bin}/sherlock
+[${green}*${red}] ${green}Installing seeker..."${white}
+        yes|pkg update && pkg upgrade
+        yes|pkg install python
+	yes|pkg install php
+	yes|pkg install curl
+	yes|pkg install wget
+	yes|pkg install openssh
+        pip install --upgrade pip
+        git clone https://github.com/Darkmux/seeker ${opt}/seeker
+        cd ${opt}/seeker
+	chmod 777 install.sh
+        bash install.sh
+        cp ${execute}/seeker ${bin}
+        chmod 777 ${bin}/seeker
         echo -e ${red}"
-[${green}√${red}] ${green}Removal Completed"${white}
+[${green}√${red}] ${green}Installation Finished, Please Execute:${white}
+
+seeker <ARGUMENTS>
+
+"
     else
 	echo -e ${red}"
-[${yellow}!${red}] Not Installed"${white}
+[${green}*${red}] ${green}Already Installed"${white}
     fi
 }
 # ==============================================
 #              Declaring functions
 # ==============================================
-removing
+installing
 # ==============================================
 #    Created by: @Darkmux - WHITE HACKS ©2022
 # ==============================================

@@ -72,18 +72,24 @@ elif [[ "${argument}" == "install" ]]; then
 	source ${intools}/ncshare.sh
     elif [[ "${option}" == "sherlock" ]]; then
 	source ${intools}/sherlock.sh
+    elif [[ "${option}" == "seeker" ]]; then
+	source ${intools}/seeker.sh
     else
 	echo -e "${red}[${yello}!${red}] Invalid Option"${white}
     fi
 elif [[ "${argument}" == "remove" ]]; then
     if [[ "${option}" == "ncshare" ]]; then
 	source ${rmtools}/ncshare.sh
-    elif [[ "${option}" == "metasploit" ]]; then
-	source ${rmtools}/metasploit.sh
+    elif [[ "${option}" == "sherlock" ]]; then
+	source ${rmtools}/sherlock.sh
+    elif [[ "${option}" == "seeker" ]]; then
+	source ${rmtools}/seeker.sh
     else
 	echo -e "${red}[${yello}!${red}] Invalid Option"${white}
     fi
 elif [[ "${argument}" == "update" ]]; then
+    echo -e ${red}"
+[${green}*${red}] ${green}Updating CyberSpy..."${white}
     rm -rf ${spy}
     git clone https://github.com/Darkmux/cyberspy ${spy}
     cd ${spy}

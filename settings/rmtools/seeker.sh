@@ -69,12 +69,15 @@ whiteBack=$(setterm -background white)
 #                 Removing Tool
 # ==============================================
 function removing() {
-    if [ -x ${bin}/sherlock ]; then
+    if [ -x ${bin}/seeker ]; then
 	echo -e ${red}"
-[${green}*${red}] ${green}Removing sherlock..."${white}
+[${green}*${red}] ${green}Removing seeker..."${white}
         yes|pkg uninstall python
-        rm -rf ${opt}/sherlock
-        rm ${bin}/sherlock
+	yes|pkg uninstall php
+	yes|pkg uninstall openssh
+	yes|pkg uninstall wget
+        rm -rf ${opt}/seeker
+        rm ${bin}/seeker
         echo -e ${red}"
 [${green}√${red}] ${green}Removal Completed"${white}
     else
