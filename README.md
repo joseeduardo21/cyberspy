@@ -31,5 +31,6 @@ Hacking Tool Suite for Android in Termux **(No root)**
 > Run the installer.
 
 `bash cyberspy.sh`
+## New Commands Available
 
 [TikTok](https://tiktok.com/@whitehacks00 "WHITE HACKS")
