@@ -4,7 +4,8 @@ Hacking Tool Suite for Android in Termux **(No root)**
 ## Preview in Termux
 ![CyberSpy](https://github.com/Darkmux/cyberspy/blob/main/images/CyberSpy.png)
 ## Download Termux from F-Droid
-* [Termux](https://f-droid.org/en/packages/com.termux)
+> Note: It is not recommended to use the Termux application that is available in "Google Play Store" because the developers no longer maintain this app and therefore it is outdated.
+[Termux F-Droid](https://f-droid.org/en/packages/com.termux)
 ## Installation in Termux
 > Update Termux repositories.
 
