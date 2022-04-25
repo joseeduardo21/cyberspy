@@ -74,6 +74,14 @@ elif [[ "${argument}" == "install" ]]; then
 	source ${intools}/sherlock.sh
     elif [[ "${option}" == "seeker" ]]; then
 	source ${intools}/seeker.sh
+    elif [[ "${option}" == "metasploit" ]]; then
+	source ${intools}/metasploit.sh
+    elif [[ "${option}" == "facebash" ]]; then
+	source ${intools}/facebash.sh
+    elif [[ "${option}" == "wortex" ]]; then
+	source ${intools}/wortex.sh
+    elif [[ "${option}" == "iphunter" ]]; then
+	source ${intools}/iphunter.sh
     else
 	echo -e "${red}[${yello}!${red}] Invalid Option"${white}
     fi
@@ -84,6 +92,14 @@ elif [[ "${argument}" == "remove" ]]; then
 	source ${rmtools}/sherlock.sh
     elif [[ "${option}" == "seeker" ]]; then
 	source ${rmtools}/seeker.sh
+    elif [[ "${option}" == "metasploit" ]]; then
+	source ${rmtools}/metasploit.sh
+    elif [[ "${option}" == "facebash" ]]; then
+	source ${rmtools}/facebash.sh
+    elif [[ "${option}" == "wortex" ]]; then
+	source ${rmtools}/wortex.sh
+    elif [[ "${option}" == "iphunter" ]]; then
+	source ${rmtools}/iphunter.sh
     else
 	echo -e "${red}[${yello}!${red}] Invalid Option"${white}
     fi

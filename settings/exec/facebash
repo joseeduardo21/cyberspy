@@ -1,0 +1,4 @@
+#!/bin/bash
+facebash="/data/data/com.termux/files/usr/opt/facebash"
+cd ${facebash}
+exec bash "${facebash}/facebash.sh" "$@"

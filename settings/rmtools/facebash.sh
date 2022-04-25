@@ -66,40 +66,28 @@ redBack=$(setterm -background red)
 yellowBack=$(setterm -background yellow)
 whiteBack=$(setterm -background white)
 # ==============================================
-#             Installing dependencies
+#                 Removing Tool
 # ==============================================
-function updating() {
-    echo -e -n "Are you sure to uninstall CyberSpy? [Y/n]: "
-    read -r confirm
-
-    if [[ "${confirm}" == "y" || "${confirm}" == "Y" || "${confirm}" == "yes" || "${confirm}" == "YES" ]]; then
+function removing() {
+    if [ -x ${bin}/facebash ]; then
 	echo -e ${red}"
-[${green}*${red}] ${green}Uninstalling CyberSpy..."${white}
-	mv ${etc}/bash.bashrc.backup ${etc}/bash.bashrc
-	mv ${etc}/motd.backup ${etc}/motd
-	rm -rf ~/.termux
-	mkdir -p ~/.termux
-	cp ${style}/.termux/termux.properties ~/.termux
-	spy remove ncshare
-	spy remove sherlock
-	spy remove seeker
-	spy remove metasploit
-	spy remove facebash
-	spy remove wortex
-	spy remove iphunter
-	rm -rf ${spy}
-	rm ${bin}/spy
-    elif [[ "${confirm}" == "n" || "${confirm}" == "N" || "${confirm}" == "not" || "${confirm}" == "NOT" ]]; then
-	echo -e "Abort."
-	exit
+[${green}*${red}] ${green}Removing facebash..."${white}
+	yes|pkg uninstall wget
+	yes|pkg uninstall tor
+	yes|pkg uninstall torsocks
+        rm -rf ${opt}/facebash
+        rm ${bin}/facebash
+        echo -e ${red}"
+[${green}√${red}] ${green}Removal Completed"${white}
     else
-	exit
+	echo -e ${red}"
+[${yellow}!${red}] Not Installed"${white}
     fi
 }
 # ==============================================
 #              Declaring functions
 # ==============================================
-updating
+removing
 # ==============================================
 #    Created by: @Darkmux - WHITE HACKS ©2022
 # ==============================================

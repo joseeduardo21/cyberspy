@@ -66,40 +66,40 @@ redBack=$(setterm -background red)
 yellowBack=$(setterm -background yellow)
 whiteBack=$(setterm -background white)
 # ==============================================
-#             Installing dependencies
+#             Installing Tool
 # ==============================================
-function updating() {
-    echo -e -n "Are you sure to uninstall CyberSpy? [Y/n]: "
-    read -r confirm
-
-    if [[ "${confirm}" == "y" || "${confirm}" == "Y" || "${confirm}" == "yes" || "${confirm}" == "YES" ]]; then
+function installing() {
+    if [ ! -x ${bin}/msfconsole ]; then
 	echo -e ${red}"
-[${green}*${red}] ${green}Uninstalling CyberSpy..."${white}
-	mv ${etc}/bash.bashrc.backup ${etc}/bash.bashrc
-	mv ${etc}/motd.backup ${etc}/motd
-	rm -rf ~/.termux
-	mkdir -p ~/.termux
-	cp ${style}/.termux/termux.properties ~/.termux
-	spy remove ncshare
-	spy remove sherlock
-	spy remove seeker
-	spy remove metasploit
-	spy remove facebash
-	spy remove wortex
-	spy remove iphunter
-	rm -rf ${spy}
-	rm ${bin}/spy
-    elif [[ "${confirm}" == "n" || "${confirm}" == "N" || "${confirm}" == "not" || "${confirm}" == "NOT" ]]; then
-	echo -e "Abort."
-	exit
+[${green}*${red}] ${green}Installing metasploit-framework..."${white}
+        yes|pkg update && pkg upgrade
+	yes|pkg install curl
+	yes|pkg install wget
+        git clone https://github.com/Scorpio28-Oficial/MSF ${home}/MSF
+        cd ${home}/MSF
+	chmod 777 metasploit.sh
+        bash metasploit.sh
+	cd ${home}
+	rm -rf MSF
+        echo -e ${red}"
+[${green}√${red}] ${green}Installation Finished, Please Execute:${white}
+
+msfconsole <ARGUMENTS>
+
+----- or -----
+
+msfvenom <AEGUMENTS>
+
+"
     else
-	exit
+	echo -e ${red}"
+[${green}*${red}] ${green}Already Installed"${white}
     fi
 }
 # ==============================================
 #              Declaring functions
 # ==============================================
-updating
+installing
 # ==============================================
 #    Created by: @Darkmux - WHITE HACKS ©2022
 # ==============================================
