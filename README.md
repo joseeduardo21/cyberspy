@@ -12,27 +12,39 @@ yes|pkg update && pkg upgrade
 
 > Grant storage permissions to Termux.
 
-`termux-setup-storage`
+```bash
+termux-setup-storage
+```
 
 > Install "git" version control software.
 
-`yes|pkg install git`
+```bash
+yes|pkg install git
+```
 
 > Clone github repository.
 
-`git clone https://github.com/Darkmux/cyberspy`
+```bash
+git clone https://github.com/Darkmux/cyberspy
+```
 
 > Access the cloned "cyberspy" folder.
 
-`cd cyberspy`
+```bash
+cd cyberspy
+```
 
 > Grant execute permissions to all files with extension (.sh).
 
-`chmod 777 *.sh`
+```bash
+chmod 777 *.sh
+```
 
 > Run the installer.
 
-`bash cyberspy.sh`
+```bash
+bash cyberspy.sh
+```
 ## New Commands Available
 
 [TikTok](https://tiktok.com/@whitehacks00 "WHITE HACKS")
