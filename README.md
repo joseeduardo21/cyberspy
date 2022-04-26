@@ -59,7 +59,7 @@ bash cyberspy.sh
 spy help
 ```
 ```bash
-spy list tools
+spy list <tools|styles>
 ```
 ```bash
 spy update
