@@ -59,7 +59,7 @@ bash cyberspy.sh
 spy help
 ```
 ```bash
-spy list <tools|styles>
+spy list <tools|banners>
 ```
 ```bash
 spy update
@@ -68,7 +68,7 @@ spy update
 spy uninstall
 ```
 ```bash
-spy style <small|medium|large>
+spy style <banner>
 ```
 ```bash
 spy install <tool>
