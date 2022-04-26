@@ -117,7 +117,7 @@ elif [[ "${argument}" == "uninstall" ]]; then
     echo -e ${red}"[${green}√${red}] ${green}CyberSpy Uninstalled"${white}
 elif [[ "${argument}" == "help" ]]; then
     echo -e ${red}"
-[${green}√${red}] ${green}CyberSpy Help${red}[${green}√${red}]${white}
+[${green}√${red}] ${green}CyberSpy Help${red} [${green}√${red}]${white}
 
 spy ${green}<${white}arguments${green}> <${white}options${green}>
 
@@ -125,31 +125,31 @@ Arguments Available:
 
 $ ${white}spy help${red}
 
-[${green}*${red}] ${yellow}Shows a help menu on the use of cyberspy in the terminal.${green}
+[${green}*${red}] ${white}Shows a help menu on the use of cyberspy in the terminal.${green}
 
 $ ${white}spy list ${green}<${white}tools${green}|${white}banners${green}>${red}
 
-[${green}*${red}] ${yellow}Shows the list of tools or banners available to use and install.${green}
+[${green}*${red}] ${white}Shows the list of tools or banners available to use and install.${green}
 
 $ ${white}spy update${red}
 
-[${green}*${red}] ${yellow}Find and update CyberSpy to its latest version. (Run it whenever they enter the terminal).${green}
+[${green}*${red}] ${white}Find and update CyberSpy to its latest version. (Run it whenever they enter the terminal).${green}
 
 $ ${white}spy uninstall${red}
 
-[${green}*${red}] ${yellow}Completely uninstall CyberSpy and go back to the default Termux (only use it if you don't like cyberspy).${green}
+[${green}*${red}] ${white}Completely uninstall CyberSpy and go back to the default Termux (only use it if you don't like cyberspy).${green}
 
 $ ${white}spy style ${green}<${white}banner${green}>${red}
 
-[${green}*${red}] ${yellow}Changes the size of the banner depending on the specified argument. (It is recommended to adapt it to your font size in Termux).${green}
+[${green}*${red}] ${white}Changes the size of the banner depending on the specified argument. (It is recommended to adapt it to your font size in Termux).${green}
 
 $ ${white}spy install ${green}<${white}tool${green}>${red}
 
-[${green}*${red}] ${yellow}Installs the tool specified as an argument.${green}
+[${green}*${red}] ${white}Installs the tool specified as an argument.${green}
 
 $ ${white}spy remove ${green}<${white}tool${green}>${red}
 
-[${green}*${red}] ${yellow}Removes the tool specified as an argument.${white}
+[${green}*${red}] ${white}Removes the tool specified as an argument.${white}
 "
 elif [[ "${argument}" == "list" ]]; then
     if [[ "${option}" == "tools" ]]; then
