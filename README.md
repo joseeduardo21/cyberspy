@@ -77,4 +77,6 @@ spy install <tool>
 spy remove <tool>
 ```
 ## Social Media Links
+* [Facebook](https://www.facebook.com/whitehacks00 "WHITE HACKS")
 * [TikTok](https://tiktok.com/@whitehacks00 "WHITE HACKS")
+* [Telegram](https://t.me/whitehacks00 "WHITE HACKS")
