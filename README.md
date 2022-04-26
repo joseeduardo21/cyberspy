@@ -60,6 +60,7 @@ spy help
 ```
 ```bash
 spy list tools
+```
 ```bash
 spy update
 ```
