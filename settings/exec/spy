@@ -117,7 +117,8 @@ elif [[ "${argument}" == "uninstall" ]]; then
     echo -e ${red}"[${green}√${red}] ${green}CyberSpy Uninstalled"${white}
 elif [[ "${argument}" == "help" ]]; then
     echo -e ${red}"
-                   [${green}√${red}] ${green}CyberSpy Help${red}[${green}√${red}]${white}
+[${green}√${red}] ${green}CyberSpy Help${red}[${green}√${red}]${white}
+
 spy ${green}<${white}arguments${green}> <${white}options${green}>
 
 Arguments Available:
@@ -155,7 +156,7 @@ elif [[ "${argument}" == "list" ]]; then
 	names=$(ls ${execute})
 	echo "${names}" >> ${settings}/names.txt
 	num=$(cat ${settings}/names.txt | wc -l)
-	for (( i=0; i<=${num}; i++ ))
+	for (( i=1; i<=${num}; i++ ))
 	do
 	    nameTool=$(awk "NR ==${i}" ${settings}/names.txt)
 	    echo -e ${red}"[${green}√${red}] ${green}${nameTool}"
@@ -163,14 +164,11 @@ elif [[ "${argument}" == "list" ]]; then
 	done
 	rm ${settings}/names.txt
     elif [[ "${option}" == "banners" ]]; then
-	echo -e ${red}"
-[${green}√${red}] ${green}small"
+	echo -e ${red}"[${green}√${red}] ${green}small"
 	sleep 0.1
-	echo -e ${red}"
-[${green}√${red}] ${green}medium"
+	echo -e ${red}"[${green}√${red}] ${green}medium"
 	sleep 0.1
-	echo -e ${red}"
-[${green}√${red}] ${green}large"
+	echo -e ${red}"[${green}√${red}] ${green}large"
 	sleep 0.1
     else
 	echo -e "${red}[${yellow}!${red}] Invalid Option"${white}
