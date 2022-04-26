@@ -54,5 +54,26 @@ bash cyberspy.sh
 ```
 ## New Commands Available
 > The main command is `spy` which is used along with its arguments for it to work properly:
-
-[TikTok](https://tiktok.com/@whitehacks00 "WHITE HACKS")
+## Arguments Available
+```bash
+spy help
+```
+```bash
+spy list tools
+```bash
+spy update
+```
+```bash
+spy uninstall
+```
+```bash
+spy style <small|medium|large>
+```
+```bash
+spy install <tool>
+```
+```bash
+spy remove <tool>
+```
+## Social Media Links
+* [TikTok](https://tiktok.com/@whitehacks00 "WHITE HACKS")
