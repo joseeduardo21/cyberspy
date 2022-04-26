@@ -155,13 +155,23 @@ elif [[ "${argument}" == "list" ]]; then
 	names=$(ls ${execute})
 	echo "${names}" >> ${settings}/names.txt
 	num=$(cat ${settings}/names.txt | wc -l)
-	for (( i=0; i<${num}; i++ ))
+	for (( i=0; i<=${num}; i++ ))
 	do
 	    nameTool=$(awk "NR ==${i}" ${settings}/names.txt)
 	    echo -e ${red}"[${green}√${red}] ${green}${nameTool}"
 	    sleep 0.1
 	done
+	rm ${settings}/names.txt
     elif [[ "${option}" == "banners" ]]; then
+	echo -e ${red}"
+[${green}√${red}] ${green}small"
+	sleep 0.1
+	echo -e ${red}"
+[${green}√${red}] ${green}medium"
+	sleep 0.1
+	echo -e ${red}"
+[${green}√${red}] ${green}large"
+	sleep 0.1
     else
 	echo -e "${red}[${yellow}!${red}] Invalid Option"${white}
     fi
